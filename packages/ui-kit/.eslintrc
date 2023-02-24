@@ -2,12 +2,19 @@
   "extends": "@acerohernan/eslint-config-custom",
   "rules": {
     "import/no-extraneous-dependencies": [
-      "error",
+      "warn",
       {
         "devDependencies": []
       }
     ],
-    "import/prefer-default-export": 0
+    "import/prefer-default-export": 0,
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ]
   },
   "overrides": [
     {
