@@ -1,6 +1,6 @@
 {
   "name": "@acerohernan/eslint-config-custom",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This is the default eslint configuratin for all the projects",
   "main": "lib/index.js",
   "directories": {
