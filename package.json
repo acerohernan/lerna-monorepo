@@ -8,5 +8,8 @@
     "eslint": "^8.34.0",
     "lerna": "^6.5.1",
     "prettier": "^2.8.4"
+  },
+  "dependencies": {
+    "@acerohernan/eslint-config-custom": "^0.0.1"
   }
 }

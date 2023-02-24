@@ -1,0 +1,23 @@
+{
+  "extends": "@acerohernan/eslint-config-custom",
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": []
+      }
+    ],
+    "import/prefer-default-export": 0
+  },
+  "overrides": [
+    {
+      "files": ["jest.setup.js"],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "import/no-extraneous-dependencies": 0
+      }
+    }
+  ]
+}
