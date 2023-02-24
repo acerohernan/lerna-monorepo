@@ -1,6 +1,13 @@
 import React from "react";
-interface Props {
-    label: string;
-}
-declare const Button: React.FC<Props>;
+import { ButtonProps } from "./types";
+declare const Button: {
+    <E extends React.ElementType<any> = "button">(props: ButtonProps<E>): JSX.Element;
+    defaultProps: {
+        isLoading: boolean;
+        external: boolean;
+        variant: "primary";
+        scale: "md";
+        disabled: boolean;
+    };
+};
 export default Button;

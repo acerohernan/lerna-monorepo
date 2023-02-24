@@ -1,11 +1,52 @@
-import React from "react";
+import React, { ElementType } from "react";
+import getExternalLinkProps from "../../util/getExternalLinkProps";
+import StyledButton from "./StyledButton";
+import { ButtonProps, scales, variants } from "./types";
 
-interface Props {
-  label: string;
-}
+const Button = <E extends ElementType = "button">(
+  props: ButtonProps<E>
+): JSX.Element => {
+  const {
+    startIcon,
+    endIcon,
+    external,
+    className,
+    isLoading,
+    disabled,
+    children,
+    ...rest
+  } = props;
+  const internalProps = external ? getExternalLinkProps() : {};
+  const isDisabled = isLoading || disabled;
+  const classNames = className ? [className] : [];
 
-const Button: React.FC<Props> = ({ label }) => (
-  <button type="button">{label}</button>
-);
+  if (isLoading) {
+    classNames.push("pancake-button--loading");
+  }
+
+  if (isDisabled && !isLoading) {
+    classNames.push("pancake-button--disabled");
+  }
+
+  return (
+    <StyledButton
+      $isLoading={isLoading}
+      className={classNames.join(" ")}
+      disabled={isDisabled}
+      {...internalProps}
+      {...rest}
+    >
+      {children}
+    </StyledButton>
+  );
+};
+
+Button.defaultProps = {
+  isLoading: false,
+  external: false,
+  variant: variants.PRIMARY,
+  scale: scales.MD,
+  disabled: false,
+};
 
 export default Button;
